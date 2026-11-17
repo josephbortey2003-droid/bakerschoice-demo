@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Bakers Choice Tantra Hill</title>
+<meta name="description" content="Bakers Choice, Tantra Hill, Accra: freshly baked bread, pastries and custom cakes for every occasion. Order on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Instrument+Sans:wght@400;500;600;700&family=Caveat:wght@600&display=swap">
+<style>
+/* Layout: their own look (cream paper, chocolate brown, caramel). Photo-led hero, "baked today" shelf, custom cakes + big orders, their 3-step ordering, reviews, visit. Single warm look by choice. */
+:root {
+  --cream: #f7ecda;
+  --paper: #fffaf2;
+  --choc: #3f2214;
+  --cocoa: #6b4330;
+  --caramel: #c8742c;
+  --line: #e6d4b8;
+  --display: "Fraunces", Georgia, serif;
+  --text: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --hand: "Caveat", "Segoe Script", cursive;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { background: var(--cream); color: var(--choc); font: 400 16px/1.6 var(--text); }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--caramel); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+.demo { background: var(--choc); color: var(--cream); font-size: 13px; text-align: center; padding-block: 8px; }
+
+header.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 16px; }
+.brand { text-decoration: none; line-height: 1; }
+.brand b { display: block; font: 800 26px/1 var(--display); letter-spacing: -.01em; }
+.brand i { font: 600 22px/1 var(--hand); color: var(--caramel); font-style: normal; }
+.top nav { display: flex; gap: 22px; font-weight: 600; font-size: 15px; }
+.top nav a { text-decoration: none; }
+.top nav a:hover { color: var(--caramel); }
+
+.hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: 44px; align-items: center; padding-block: 24px 64px; }
+.hand { font: 600 28px/1 var(--hand); color: var(--caramel); margin: 0 0 6px; }
+.hero h1 { font: 800 clamp(48px, 7.4vw, 96px)/.98 var(--display); letter-spacing: -.02em; margin: 0; text-wrap: balance; }
+.hero h1 span { color: var(--caramel); }
+.lede { font-size: 19px; color: var(--cocoa); max-width: 38ch; margin: 20px 0 26px; }
+.ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 22px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 2px solid var(--choc); }
+.btn.solid { background: var(--choc); color: var(--cream); }
+.btn.solid:hover { background: var(--caramel); border-color: var(--caramel); }
+.btn.ghost:hover { border-color: var(--caramel); color: var(--caramel); }
+
+.shot { position: relative; }
+.shot img { width: 100%; height: auto; max-height: 76vh; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 28px 28px 28px 140px; }
+.board { position: absolute; right: -18px; bottom: 26px; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 14px 18px; display: grid; gap: 4px; box-shadow: 0 18px 40px rgba(63,34,20,.18); min-width: 220px; }
+.status { display: flex; align-items: center; gap: 10px; font: 800 20px/1.1 var(--display); }
+.dot { width: 11px; height: 11px; border-radius: 50%; background: #999; }
+.status.open .dot { background: #2e9a54; box-shadow: 0 0 0 5px rgba(46,154,84,.2); }
+.status.closed .dot { background: #c0392b; }
+.board span { font-size: 14px; color: var(--cocoa); }
+
+section { padding-block: 72px; }
+section.alt { background: var(--paper); }
+.eyebrow { font: 600 26px/1 var(--hand); color: var(--caramel); margin: 0 0 6px; }
+h2 { font: 800 clamp(36px, 5.4vw, 64px)/1 var(--display); letter-spacing: -.02em; margin: 0 0 30px; text-wrap: balance; }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; }
+.head p { color: var(--cocoa); max-width: 42ch; margin: 0 0 30px; }
+
+.shelf { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.shelf article { background: var(--paper); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; }
+section.alt .shelf article { background: var(--cream); }
+.shelf img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.shelf div { padding: 14px 16px 18px; }
+.shelf h3 { font: 800 21px/1.15 var(--display); margin: 0 0 4px; }
+.shelf p { margin: 0; color: var(--cocoa); font-size: 15px; }
+
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
+.split .pics { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.split .pics img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 20px; }
+.split .pics img:nth-child(2) { margin-top: 40px; }
+.big { font: 800 clamp(40px, 5vw, 60px)/1 var(--display); color: var(--caramel); margin: 0; }
+.ticks { list-style: none; padding: 0; margin: 20px 0 26px; display: grid; gap: 10px; }
+.ticks li { padding-left: 28px; position: relative; }
+.ticks li::before { content: ""; position: absolute; left: 0; top: .5em; width: 14px; height: 14px; border-radius: 50%; background: var(--caramel); }
+
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; counter-reset: s; }
+.steps li { list-style: none; background: var(--cream); border: 1px solid var(--line); border-radius: 20px; padding: 22px; counter-increment: s; }
+.steps li::before { content: counter(s); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--choc); color: var(--cream); font: 800 20px/1 var(--display); margin-bottom: 14px; }
+.steps h3 { font: 800 22px/1.2 var(--display); margin: 0 0 6px; }
+.steps p { margin: 0; color: var(--cocoa); }
+.pay { margin-top: 18px; color: var(--cocoa); }
+.pay b { color: var(--choc); }
+
+.quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+blockquote { margin: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 20px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; }
+blockquote p { margin: 0; font: 600 19px/1.4 var(--display); }
+blockquote cite { font-style: normal; color: var(--cocoa); font-size: 14px; }
+.rating { display: flex; align-items: baseline; gap: 14px; margin-bottom: 24px; }
+.rating b { font: 800 60px/1 var(--display); }
+.rating span { color: var(--cocoa); }
+
+.visit { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+.addr { font-size: 20px; font-weight: 600; margin: 0 0 6px; }
+.lines { display: grid; gap: 6px; margin: 16px 0 24px; }
+.hours { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.hours td { padding: 11px 0; border-bottom: 1px solid var(--line); }
+.hours td:last-child { text-align: right; }
+.hours tr.today td { font-weight: 700; color: var(--caramel); }
+
+footer { padding-block: 32px 110px; color: var(--cocoa); font-size: 14px; border-top: 1px solid var(--line); }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+.dock { position: fixed; left: 0; right: 0; bottom: 0; display: none; gap: 10px; padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); background: rgba(247,236,218,.94); backdrop-filter: blur(8px); border-top: 1px solid var(--line); z-index: 5; }
+.dock .btn { flex: 1; padding: 12px; }
+
+@media (max-width: 900px) {
+  .hero, .split, .visit { grid-template-columns: 1fr; }
+  .shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps, .quotes { grid-template-columns: 1fr; }
+  .board { right: 12px; bottom: 12px; }
+  .top nav { display: none; }
+  .dock { display: flex; }
+  section { padding-block: 52px; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+<div class="demo">Demo website made for Bakers Choice. Prices and final details to be confirmed by you.</div>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top" id="top" aria-label="Bakers Choice home"><b>Bakers <i>Choice</i></b></a>
+    <nav aria-label="Sections">
+      <a href="#baked">Our bakes</a>
+      <a href="#cakes">Custom cakes</a>
+      <a href="#order">How to order</a>
+      <a href="#visit">Visit</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <p class="hand">Tantra Hill, Accra</p>
+      <h1>Freshly baked. <span>Made with love.</span></h1>
+      <p class="lede">Fresh bread, pastries and cakes every day, plus custom cakes for birthdays, weddings and every occasion.</p>
+      <div class="ctas">
+        <a class="btn solid" href="https://wa.me/233595565656?text=Hello%20Bakers%20Choice%2C%20I%27d%20like%20to%20place%20an%20order" target="_blank" rel="noopener">Order on WhatsApp</a>
+        <a class="btn ghost" href="tel:+233595565565">Call 059 556 5565</a>
+      </div>
+    </div>
+    <div class="shot">
+      <img src="img/hero.webp" alt="Trays of golden croissants fresh from the oven" width="640" height="852">
+      <div class="board" aria-label="Opening status">
+        <div class="status" id="status"><span class="dot"></span><span id="statusText">Open today</span></div>
+        <span id="todayLine">Mon–Fri 7 am – 7 pm</span>
+        <span>★ 4.6 on Google · 104 reviews</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="baked" class="alt">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow">baked today</p><h2>From our oven</h2></div>
+      <p>Bread, pastries and savouries, made fresh every morning. Photos from our Instagram.</p>
+    </div>
+    <div class="shelf">
+      <article><img src="img/bread.webp" alt="Sliced brown bread loaf" loading="lazy"><div><h3>Fresh bread</h3><p>Brown, wheat and sugar-free loaves, baked daily.</p></div></article>
+      <article><img src="img/hands.webp" alt="Cinnamon rolls and croissants" loading="lazy"><div><h3>Croissants &amp; rolls</h3><p>Butter croissants, chocolate croissants and cinnamon rolls.</p></div></article>
+      <article><img src="img/rolls.webp" alt="Tray of sausage rolls" loading="lazy"><div><h3>Sausage rolls</h3><p>Flaky puff pastry, golden on top.</p></div></article>
+      <article><img src="img/pies.webp" alt="Tray of meat pies" loading="lazy"><div><h3>Meat pies</h3><p>Our customers' favourite with tea.</p></div></article>
+      <article><img src="img/spring.webp" alt="Crispy spring rolls" loading="lazy"><div><h3>Spring rolls</h3><p>Crispy, filled and perfect for parties.</p></div></article>
+      <article><img src="img/lattice.webp" alt="Lattice-top pie" loading="lazy"><div><h3>Pies</h3><p>Lattice pies baked whole, to share.</p></div></article>
+      <article><img src="img/breakfast.webp" alt="Breakfast box with waffles, muffin and fruit" loading="lazy"><div><h3>Breakfast boxes</h3><p>Waffles, muffins and treats, boxed for gifting.</p></div></article>
+      <article><img src="img/sandwich.webp" alt="Packed sandwiches with a bottle of sobolo" loading="lazy"><div><h3>Sandwiches &amp; sobolo</h3><p>Packed sandwiches and chilled sobolo to go.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="cakes">
+  <div class="wrap split">
+    <div class="pics">
+      <img src="img/cupcakes.webp" alt="Decorated festive cupcakes" loading="lazy">
+      <img src="img/catering.webp" alt="Bakers Choice pastries and breads set out on a catering table" loading="lazy">
+    </div>
+    <div>
+      <p class="eyebrow">for every occasion</p>
+      <h2>Custom cakes &amp; big orders</h2>
+      <p class="big">800+ croissants</p>
+      <p>That was one client's order. Birthdays, weddings, office breakfasts or church events, we bake to order.</p>
+      <ul class="ticks">
+        <li>Birthday, wedding and celebration cakes</li>
+        <li>Cupcakes, pastries and breakfast boxes in bulk</li>
+        <li>Pick-up, or delivery to your door</li>
+      </ul>
+      <a class="btn solid" href="https://wa.me/233595565656?text=Hello%20Bakers%20Choice%2C%20I%27d%20like%20a%20custom%20order" target="_blank" rel="noopener">Ask about a custom order</a>
+    </div>
+  </div>
+</section>
+
+<section id="order" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">easy as 1, 2, 3</p>
+    <h2>How to order</h2>
+    <ol class="steps" style="padding:0;margin:0">
+      <li><h3>Send a message</h3><p>WhatsApp 059 556 5656, call 059 556 5565, or DM us on Instagram.</p></li>
+      <li><h3>We confirm</h3><p>We reply with your order details, the price, and the pick-up or delivery time.</p></li>
+      <li><h3>Pick up or delivery</h3><p>Collect it at Tantra Hill, or we bring it to your door.</p></li>
+    </ol>
+    <p class="pay">Pay with Mobile Money: <b>059 148 5679</b></p>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">what people say</p>
+    <h2>Loved in the area</h2>
+    <div class="rating"><b>4.6</b><span>average from 104 Google reviews</span></div>
+    <div class="quotes">
+      <blockquote><p>"Likely one of the best pastry shops in the area."</p><cite>Google review</cite></blockquote>
+      <blockquote><p>"They came fresh, warm, nicely packaged, delivered on time."</p><cite>Google review, on a breakfast order</cite></blockquote>
+      <blockquote><p>"A consistently high standard of quality in their pastries."</p><cite>Google review</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="visit" class="alt">
+  <div class="wrap visit">
+    <div>
+      <p class="eyebrow">come say hi</p>
+      <h2>Tantra Hill, Accra</h2>
+      <p class="addr">Doris A. Obodai Ave, Tantra Hills</p>
+      <p>GhanaPost GPS <b>GW-1053-7639</b></p>
+      <div class="lines">
+        <span>WhatsApp: <b>059 556 5656</b></span>
+        <span>Call: <b>059 556 5565</b></span>
+        <span>Mobile Money: <b>059 148 5679</b></span>
+      </div>
+      <div class="ctas">
+        <a class="btn solid" href="https://www.google.com/maps/search/?api=1&query=Bakers%20Choice%20Doris%20A.%20Obodai%20Ave%20Accra" target="_blank" rel="noopener">Get directions</a>
+        <a class="btn ghost" href="https://www.instagram.com/bakerschoicegh/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <table class="hours" aria-label="Opening hours"><tbody id="hoursBody"></tbody></table>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>© Bakers Choice GH · Tantra Hill, Accra</span><a href="https://www.instagram.com/bakerschoicegh/" target="_blank" rel="noopener">@bakerschoicegh</a></div>
+</footer>
+
+<div class="dock">
+  <a class="btn solid" href="https://wa.me/233595565656?text=Hello%20Bakers%20Choice%2C%20I%27d%20like%20to%20place%20an%20order" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn ghost" href="tel:+233595565565">Call</a>
+</div>
+
+<script>
+(() => {
+  // Accra is on UTC all year. Hours from Google Maps.
+  const H = { 0: null, 1: [420, 1140], 2: [420, 1140], 3: [420, 1140], 4: [420, 1140], 5: [420, 1140], 6: [480, 1050] };
+  const label = { 1: '7:00 am – 7:00 pm', 6: '8:00 am – 5:30 pm' };
+  const text = d => H[d] === null ? 'Closed' : (d === 6 ? label[6] : label[1]);
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const now = new Date(), d = now.getUTCDay(), m = now.getUTCHours() * 60 + now.getUTCMinutes();
+  const h = H[d];
+  const open = !!h && m >= h[0] && m < h[1];
+  document.getElementById('status').classList.add(open ? 'open' : 'closed');
+  const t = mm => { const hr = Math.floor(mm / 60), mi = mm % 60; return (hr > 12 ? hr - 12 : hr) + (mi ? ':' + String(mi).padStart(2, '0') : '') + (hr >= 12 ? ' pm' : ' am'); };
+  let s;
+  if (open) s = 'Open now';
+  else if (h && m < h[0]) s = 'Opens ' + t(h[0]);
+  else {
+    let n = (d + 1) % 7; while (H[n] === null) n = (n + 1) % 7;
+    s = 'Closed · opens ' + (n === (d + 1) % 7 ? '' : days[n].slice(0, 3) + ' ') + t(H[n][0]);
+  }
+  document.getElementById('statusText').textContent = s;
+  document.getElementById('todayLine').textContent = 'Today: ' + text(d);
+
+  const body = document.getElementById('hoursBody');
+  for (let i = 1; i <= 7; i++) {
+    const k = i % 7, tr = document.createElement('tr');
+    if (k === d) tr.className = 'today';
+    tr.innerHTML = '<td>' + days[k] + (k === d ? ' (today)' : '') + '</td><td>' + text(k) + '</td>';
+    body.appendChild(tr);
+  }
+})();
+</script>
+
+</body>
+</html>
