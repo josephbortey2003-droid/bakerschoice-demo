@@ -33,6 +33,7 @@ a { color: inherit; }
 
 header.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 16px; }
 .brand { text-decoration: none; line-height: 1; }
+.brand img { width: 64px; height: 64px; border-radius: 50%; box-shadow: 0 0 0 2px var(--choc), 0 6px 18px rgba(63,34,20,.18); background: #fff; }
 .brand b { display: block; font: 800 26px/1 var(--display); letter-spacing: -.01em; }
 .brand i { font: 600 22px/1 var(--hand); color: var(--caramel); font-style: normal; }
 .top nav { display: flex; gap: 22px; font-weight: 600; font-size: 15px; }
@@ -70,7 +71,9 @@ h2 { font: 800 clamp(36px, 5.4vw, 64px)/1 var(--display); letter-spacing: -.02em
 .shelf article { background: var(--paper); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; }
 section.alt .shelf article { background: var(--cream); }
 .shelf img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
-.shelf div { padding: 14px 16px 18px; }
+.shelf article > div { padding: 14px 16px 18px; display: flex; flex-direction: column; flex: 1; }
+.shelf .qty { align-self: flex-start; margin-top: auto; }
+.shelf article > div > p { margin-bottom: 12px; }
 .shelf h3 { font: 800 21px/1.15 var(--display); margin: 0 0 4px; }
 .shelf p { margin: 0; color: var(--cocoa); font-size: 15px; }
 
@@ -113,6 +116,31 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 .dock { position: fixed; left: 0; right: 0; bottom: 0; display: none; gap: 10px; padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); background: rgba(247,236,218,.94); backdrop-filter: blur(8px); border-top: 1px solid var(--line); z-index: 5; }
 .dock .btn { flex: 1; padding: 12px; }
 
+.qty { display: inline-flex; align-items: center; gap: 4px; margin-top: 12px; background: var(--cream); border: 1px solid var(--line); border-radius: 999px; padding: 4px; }
+section.alt .shelf .qty { background: var(--paper); }
+.qty button { width: 38px; height: 38px; border-radius: 50%; border: 0; background: var(--choc); color: var(--cream); font: 700 20px/1 var(--text); cursor: pointer; }
+.qty button.minus { background: transparent; color: var(--choc); border: 1px solid var(--line); }
+.qty button:hover { background: var(--caramel); color: #fff; }
+.qty output { min-width: 30px; text-align: center; font: 800 18px/1 var(--display); }
+.shelf article.picked { border-color: var(--caramel); box-shadow: 0 0 0 2px var(--caramel); }
+.bar { position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, calc(100% + 120px)); visibility: hidden; transition: transform .25s ease, visibility .25s; z-index: 8; display: flex; align-items: center; gap: 14px; background: var(--choc); color: var(--cream); border-radius: 999px; padding: 10px 10px 10px 22px; box-shadow: 0 14px 40px rgba(63,34,20,.35); width: min(560px, calc(100% - 32px)); }
+.bar.show { transform: translate(-50%, 0); visibility: visible; }
+.bar span { flex: 1; font-weight: 600; }
+.bar .btn { background: var(--caramel); border-color: var(--caramel); color: #fff; padding: 11px 18px; }
+dialog.order { border: 0; border-radius: 24px; padding: 0; width: min(520px, calc(100% - 24px)); max-height: calc(100dvh - 32px); background: var(--paper); color: var(--choc); box-shadow: 0 30px 80px rgba(0,0,0,.35); }
+dialog.order::backdrop { background: rgba(40,20,10,.55); }
+.order form { padding: 24px; display: grid; gap: 14px; }
+.order h2 { font-size: 34px; margin: 0; }
+.order ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.order li { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--line); padding-bottom: 8px; }
+.order label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; }
+.order input, .order select, .order textarea { font: 400 16px/1.4 var(--text); padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--choc); }
+.order .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.order .note { font-size: 14px; color: var(--cocoa); margin: 0; }
+.order .acts { display: flex; gap: 10px; flex-wrap: wrap; }
+.order .acts .btn { flex: 1; }
+@media (max-width: 520px) { .order .row2 { grid-template-columns: 1fr; } }
+
 @media (max-width: 900px) {
   .hero, .split, .visit { grid-template-columns: 1fr; }
   .shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -120,6 +148,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
   .board { right: 12px; bottom: 12px; }
   .top nav { display: none; }
   .dock { display: flex; }
+  .bar { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
   section { padding-block: 52px; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
@@ -132,7 +161,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 
 <div class="wrap">
   <header class="top">
-    <a class="brand" href="#top" id="top" aria-label="Bakers Choice home"><b>Bakers <i>Choice</i></b></a>
+    <a class="brand" href="#top" id="top" aria-label="Bakers Choice home"><img src="img/logo.png" alt="Bakers Choice: fresh, homemade, artisanal taste" width="64" height="64"></a>
     <nav aria-label="Sections">
       <a href="#baked">Our bakes</a>
       <a href="#cakes">Custom cakes</a>
@@ -147,7 +176,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       <h1>Freshly baked. <span>Made with love.</span></h1>
       <p class="lede">Fresh bread, pastries and cakes every day, plus custom cakes for birthdays, weddings and every occasion.</p>
       <div class="ctas">
-        <a class="btn solid" href="https://wa.me/233595565656?text=Hello%20Bakers%20Choice%2C%20I%27d%20like%20to%20place%20an%20order" target="_blank" rel="noopener">Order on WhatsApp</a>
+        <a class="btn solid" href="#baked">Build your order</a>
         <a class="btn ghost" href="tel:+233595565565">Call 059 556 5565</a>
       </div>
     </div>
@@ -166,17 +195,17 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
   <div class="wrap">
     <div class="head">
       <div><p class="eyebrow">baked today</p><h2>From our oven</h2></div>
-      <p>Bread, pastries and savouries, made fresh every morning. Photos from our Instagram.</p>
+      <p>Tap <b>+</b> on what you want. Your list goes to our WhatsApp in one tap, and we confirm the price and time. Photos from our Instagram.</p>
     </div>
     <div class="shelf">
-      <article><img src="img/bread.webp" alt="Sliced brown bread loaf" loading="lazy"><div><h3>Fresh bread</h3><p>Brown, wheat and sugar-free loaves, baked daily.</p></div></article>
-      <article><img src="img/hands.webp" alt="Cinnamon rolls and croissants" loading="lazy"><div><h3>Croissants &amp; rolls</h3><p>Butter croissants, chocolate croissants and cinnamon rolls.</p></div></article>
-      <article><img src="img/rolls.webp" alt="Tray of sausage rolls" loading="lazy"><div><h3>Sausage rolls</h3><p>Flaky puff pastry, golden on top.</p></div></article>
-      <article><img src="img/pies.webp" alt="Tray of meat pies" loading="lazy"><div><h3>Meat pies</h3><p>Our customers' favourite with tea.</p></div></article>
-      <article><img src="img/spring.webp" alt="Crispy spring rolls" loading="lazy"><div><h3>Spring rolls</h3><p>Crispy, filled and perfect for parties.</p></div></article>
-      <article><img src="img/lattice.webp" alt="Lattice-top pie" loading="lazy"><div><h3>Pies</h3><p>Lattice pies baked whole, to share.</p></div></article>
-      <article><img src="img/breakfast.webp" alt="Breakfast box with waffles, muffin and fruit" loading="lazy"><div><h3>Breakfast boxes</h3><p>Waffles, muffins and treats, boxed for gifting.</p></div></article>
-      <article><img src="img/sandwich.webp" alt="Packed sandwiches with a bottle of sobolo" loading="lazy"><div><h3>Sandwiches &amp; sobolo</h3><p>Packed sandwiches and chilled sobolo to go.</p></div></article>
+      <article><img src="img/bread.webp" alt="Sliced brown bread loaf" loading="lazy"><div><h3>Fresh bread</h3><p>Brown, wheat and sugar-free loaves, baked daily.</p><div class="qty" data-item="Fresh bread"><button type="button" class="minus" aria-label="Remove one Fresh bread">−</button><output aria-live="polite">0</output><button type="button" class="plus" aria-label="Add one Fresh bread">+</button></div></div></article>
+      <article><img src="img/hands.webp" alt="Cinnamon rolls and croissants" loading="lazy"><div><h3>Croissants &amp; rolls</h3><p>Butter croissants, chocolate croissants and cinnamon rolls.</p><div class="qty" data-item="Croissants & rolls"><button type="button" class="minus" aria-label="Remove one Croissants & rolls">−</button><output aria-live="polite">0</output><button type="button" class="plus" aria-label="Add one Croissants & rolls">+</button></div></div></article>
+      <article><img src="img/rolls.webp" alt="Tray of sausage rolls" loading="lazy"><div><h3>Sausage rolls</h3><p>Flaky puff pastry, golden on top.</p><div class="qty" data-item="Sausage rolls"><button type="button" class="minus" aria-label="Remove one Sausage rolls">−</button><output aria-live="polite">0</output><button type="button" class="plus" aria-label="Add one Sausage rolls">+</button></div></div></article>
+      <article><img src="img/pies.webp" alt="Tray of meat pies" loading="lazy"><div><h3>Meat pies</h3><p>Our customers' favourite with tea.</p><div class="qty" data-item="Meat pies"><button type="button" class="minus" aria-label="Remove one Meat pies">−</button><output aria-live="polite">0</output><button type="button" class="plus" aria-label="Add one Meat pies">+</button></div></div></article>
+      <article><img src="img/spring.webp" alt="Crispy spring rolls" loading="lazy"><div><h3>Spring rolls</h3><p>Crispy, filled and perfect for parties.</p><div class="qty" data-item="Spring rolls"><button type="button" class="minus" aria-label="Remove one Spring rolls">−</button><output aria-live="polite">0</output><button type="button" class="plus" aria-label="Add one Spring rolls">+</button></div></div></article>
+      <article><img src="img/lattice.webp" alt="Lattice-top pie" loading="lazy"><div><h3>Pies</h3><p>Lattice pies baked whole, to share.</p><div class="qty" data-item="Pies"><button type="button" class="minus" aria-label="Remove one Pies">−</button><output aria-live="polite">0</output><button type="button" class="plus" aria-label="Add one Pies">+</button></div></div></article>
+      <article><img src="img/breakfast.webp" alt="Breakfast box with waffles, muffin and fruit" loading="lazy"><div><h3>Breakfast boxes</h3><p>Waffles, muffins and treats, boxed for gifting.</p><div class="qty" data-item="Breakfast boxes"><button type="button" class="minus" aria-label="Remove one Breakfast boxes">−</button><output aria-live="polite">0</output><button type="button" class="plus" aria-label="Add one Breakfast boxes">+</button></div></div></article>
+      <article><img src="img/sandwich.webp" alt="Packed sandwiches with a bottle of sobolo" loading="lazy"><div><h3>Sandwiches &amp; sobolo</h3><p>Packed sandwiches and chilled sobolo to go.</p><div class="qty" data-item="Sandwiches & sobolo"><button type="button" class="minus" aria-label="Remove one Sandwiches & sobolo">−</button><output aria-live="polite">0</output><button type="button" class="plus" aria-label="Add one Sandwiches & sobolo">+</button></div></div></article>
     </div>
   </div>
 </section>
@@ -258,6 +287,30 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
   <a class="btn ghost" href="tel:+233595565565">Call</a>
 </div>
 
+<div class="bar" id="bar" role="status" aria-live="polite">
+  <span id="barText">0 items</span>
+  <button type="button" class="btn" id="review">Review order</button>
+</div>
+
+<dialog class="order" id="orderBox" aria-labelledby="orderTitle">
+  <form method="dialog" id="orderForm">
+    <h2 id="orderTitle">Your order</h2>
+    <ul id="orderList"></ul>
+    <div class="row2">
+      <label>Your name<input name="name" autocomplete="name" required></label>
+      <label>Pick-up or delivery<select name="how"><option>Pick-up at Tantra Hill</option><option>Delivery</option></select></label>
+    </div>
+    <label id="whereWrap" hidden>Delivery location<input name="where" placeholder="Area / landmark / GPS"></label>
+    <label>When do you need it?<input name="when" placeholder="e.g. Saturday 9 am"></label>
+    <label>Anything else? (optional)<textarea name="extra" rows="2" placeholder="Cake message, flavours, allergies…"></textarea></label>
+    <p class="note">We'll reply on WhatsApp with the total and confirm the time. Pay with Mobile Money 059 148 5679.</p>
+    <div class="acts">
+      <button type="button" class="btn ghost" id="closeOrder">Keep adding</button>
+      <button type="submit" class="btn solid" id="sendOrder">Send on WhatsApp</button>
+    </div>
+  </form>
+</dialog>
+
 <script>
 (() => {
   // Accra is on UTC all year. Hours from Google Maps.
@@ -287,6 +340,50 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     tr.innerHTML = '<td>' + days[k] + (k === d ? ' (today)' : '') + '</td><td>' + text(k) + '</td>';
     body.appendChild(tr);
   }
+})();
+
+(() => {
+  const cart = {};
+  const bar = document.getElementById('bar'), barText = document.getElementById('barText');
+  const box = document.getElementById('orderBox'), list = document.getElementById('orderList'), form = document.getElementById('orderForm');
+  const render = () => {
+    const items = Object.entries(cart).filter(([, n]) => n > 0);
+    const total = items.reduce((a, [, n]) => a + n, 0);
+    barText.textContent = total + (total === 1 ? ' item' : ' items') + ' in your order';
+    bar.classList.toggle('show', total > 0);
+    document.querySelectorAll('.qty').forEach(q => {
+      const n = cart[q.dataset.item] || 0;
+      q.querySelector('output').textContent = n;
+      q.closest('article').classList.toggle('picked', n > 0);
+    });
+    list.innerHTML = '';
+    items.forEach(([k, n]) => {
+      const li = document.createElement('li');
+      const a = document.createElement('span'); a.textContent = k;
+      const b = document.createElement('b'); b.textContent = '× ' + n;
+      li.append(a, b); list.appendChild(li);
+    });
+  };
+  document.querySelectorAll('.qty').forEach(q => {
+    const k = q.dataset.item;
+    q.querySelector('.plus').addEventListener('click', () => { cart[k] = (cart[k] || 0) + 1; render(); });
+    q.querySelector('.minus').addEventListener('click', () => { cart[k] = Math.max(0, (cart[k] || 0) - 1); render(); });
+  });
+  document.getElementById('review').addEventListener('click', () => box.showModal());
+  document.getElementById('closeOrder').addEventListener('click', () => box.close());
+  form.how.addEventListener('change', () => { document.getElementById('whereWrap').hidden = form.how.value !== 'Delivery'; });
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const items = Object.entries(cart).filter(([, n]) => n > 0);
+    if (!items.length) { box.close(); return; }
+    let msg = 'Hello Bakers Choice! I would like to order:\n' + items.map(([k, n]) => '- ' + k + ' x ' + n).join('\n');
+    msg += '\n\nName: ' + form.name.value + '\n' + form.how.value;
+    if (form.how.value === 'Delivery' && form.where.value) msg += ' to ' + form.where.value;
+    if (form.when.value) msg += '\nWhen: ' + form.when.value;
+    if (form.extra.value) msg += '\nNote: ' + form.extra.value;
+    msg += '\n\nPlease confirm the total. Thank you!';
+    window.open('https://wa.me/233595565656?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+  });
 })();
 </script>
 
